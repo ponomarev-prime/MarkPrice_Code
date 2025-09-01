@@ -1,0 +1,130 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"name":"csharp","languageName":"csharp"},{"name":"fsharp","languageName":"F#","aliases":["f#","fs"]},{"name":"html","languageName":"HTML"},{"name":"http","languageName":"HTTP"},{"name":"javascript","languageName":"JavaScript","aliases":["js"]},{"name":"mermaid","languageName":"Mermaid"},{"name":"pwsh","languageName":"PowerShell","aliases":["powershell"]},{"name":"value"}]}}
+
+#!markdown
+
+# My Book
+
+```csharp
+        {
+            Console.WriteLine("Hello, C#!");
+        }
+```
+
+#!csharp
+
+Console.WriteLine("Hello from the Top Level Program!");
+
+#!csharp
+
+Console.WriteLine(Environment.OSVersion.VersionString);
+
+#!markdown
+
+Этот ноутбук демонстрирует использование C# в Polyglot Notebook для вывода сообщений и получения информации о системе. Вы можете запускать отдельные ячейки, чтобы увидеть результаты выполнения кода.
+
+#!csharp
+
+Console.WriteLine("Hello, .NET Interactive!");
+
+#!markdown
+
+# Глава 1
+
+Mixing *rich* ***text*** and `code` is cool!
+
+#!csharp
+
+#!about
+
+#!csharp
+
+int number = 8;
+
+#!csharp
+
+Console.WriteLine(number);
+
+#!csharp
+
+// Program.cs
+Console.WriteLine($"Args: {string.Join(", ", args)}");
+var all = Environment.GetCommandLineArgs();
+
+#!markdown
+
+Ниже коротко и по делу — по пунктам 1–10.
+
+### Visual Studio 2022 vs VS Code
+
+Visual Studio 2022 — полнофункциональная IDE для Windows: профилировщики, отладка с Time Travel Debugging, Live Unit Testing, богатые refactorings, встроенные дизайнеры WinForms/WPF/XAML, мощная интеграция с Azure, тест-раннеры, анализаторы, удобный attach к процессам IIS/IIS Express, SQL Server tooling. Лучший выбор для больших .NET-решений, десктопа и enterprise.
+
+VS Code — легкий, кроссплатформенный редактор с расширениями. С плагинами C# Dev Kit и .NET Runtime превосходно подходит для .NET SDK, Web, контейнеров, Remote SSH/WSL/Containers, быстрого редактирования и скриптинга. Идеален для кроссплатформенной разработки и микросервисов.
+Выбор: если Windows-десткоп, большие солюшены и тяжелая отладка — Visual Studio. Если Linux/macOS, DevOps/контейнеры и Web — VS Code.
+
+### .NET 6 лучше .NET Framework?
+В большинстве случаев — да. .NET 6 — LTS, кроссплатформенный, быстрее, экономичнее по памяти, поддерживает современные фичи C#, минимальные API, ARM64, контейнеры. .NET Framework — только Windows и находится в режиме поддержки без развития. Исключения: когда вы завязаны на WebForms, старый WCF-host в IIS, специфичные legacy-библиотеки — тогда остаются на .NET Framework.
+
+### Что такое .NET Standard и зачем он еще нужен
+.NET Standard — спецификация набора API, общих для разных реализаций .NET (Framework, .NET 5/6/7+, Mono/Xamarin). Она позволяла библиотекам быть совместимыми везде. Сегодня для новых проектов обычно таргетируют net6.0/net8.0. Но .NET Standard 2.0 все еще важен, если нужно выпускать библиотеку, которую будут потреблять и старые платформы, включая .NET Framework 4.6.1+ и старые Xamarin/Unity.
+
+### Почему можно разные языки (C#, F#, VB)
+Благодаря CLR, CTS и CLS. Компиляторы разных языков генерируют один и тот же IL для CLR, что обеспечивает совместимость типов и взаимную интероперабельность. Язык выбирают под парадигму и задачу: C# — универсален, F# — функциональный с мощной обработкой данных и выражаемостью, VB — исторический и нишевый.
+
+### Точка входа консольного приложения
+Метод называется Main. Допустимые объявления, например:
+
+```csharp
+static void Main(string[] args) { /*...*/ }
+
+static int Main(string[] args) { /*...*/ return 0; }
+
+// с async:
+static async Task Main(string[] args) { /* await ... */ }
+```
+
+### Программа верхнего уровня и доступ к аргументам
+Верхнеуровневая программа — файл с top-level statements без явного класса и Main (C# 9+). Аргументы доступны через неявный массив args, либо через Environment.GetCommandLineArgs():
+
+```csharp
+// Program.cs
+Console.WriteLine($"Args: {string.Join(", ", args)}");
+var all = Environment.GetCommandLineArgs();
+```
+
+### Что вводить в командной строке, чтобы создать и выполнить C# код
+С установленным .NET SDK:
+
+```powershell
+dotnet new console -n MyApp
+cd MyApp
+dotnet run
+# или отдельно:
+dotnet build
+dotnet bin/Debug/net8.0/MyApp.dll
+```
+
+На Windows можно также скомпилировать одиночный файл компилятором csc:
+
+```powershell
+csc Program.cs
+.\Program.exe
+```
+
+### Преимущества .NET Interactive Notebooks
+
+- Живой REPL-опыт: выполняете C# по ячейкам, видите результат сразу.
+- Смешивание Markdown и кода для обучающих материалов, исследований, прототипов.
+- Быстрая визуализация данных, поддержка пакетов через директивы, кросс-языковые блоки (C#, F#, PowerShell).
+- Удобно для демонстраций, исследований API и документации, не разрывая контекст IDE.
+- Где смотреть справку по ключевому слову C#
+- Microsoft Learn: C# reference — официальный источник по синтаксису, ключевым словам и спецификации.
+- Языковая спецификация C# (официальный документ) — для точных формальных правил.
+- Репозиторий Roslyn — для деталей реализации компилятора.
+- Где искать решения общих проблем
+- Microsoft Learn и .NET Docs — разделы Troubleshooting, Guidance, Best Practices.
+- Stack Overflow — практические решения и типовые ошибки.
+- GitHub Issues/Discussions соответствующих библиотек и SDK.
+- Блоги .NET команды и релиз-ноутсы runtime/ASP.NET/EF Core — известные регрессии и обходные пути.
+- Awesome .NET и официальные samples — проверенные примеры.

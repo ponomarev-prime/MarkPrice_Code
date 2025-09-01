@@ -1,0 +1,46 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"name":"csharp","languageName":"csharp"},{"name":"fsharp","languageName":"F#","aliases":["f#","fs"]},{"name":"html","languageName":"HTML"},{"name":"http","languageName":"HTTP"},{"name":"javascript","languageName":"JavaScript","aliases":["js"]},{"name":"mermaid","languageName":"Mermaid"},{"name":"pwsh","languageName":"PowerShell","aliases":["powershell"]},{"name":"value"}]}}
+
+#!markdown
+
+### `unit` и `int`
+
+ - uint — это беззнаковый целый тип, хранит только положительные числа (от 0 до 4 294 967 295).
+ - int — это знаковый целый тип, хранит как отрицательные, так и положительные числа (от -2 147 483 648 до 2 147 483 647).
+
+Тип long — это 64-битное целое число со знаком.
+Он может хранить значения от -9 223 372 036 854 775 808 до 9 223 372 036 854 775 807.
+
+Тип ulong — это 64-битное целое число без знака.
+Он может хранить значения от 0 до 18 446 744 073 709 551 615.
+
+Когда использовать:
+
+long — если нужны большие положительные и отрицательные числа.
+ulong — если нужны только большие положительные числа.
+
+```csharp
+long bigNumber = -9000000000000000000;
+ulong positiveBigNumber = 9000000000000000000;
+```
+
+short — это 16-битный целый тип со знаком.
+Диапазон: от -32 768 до 32 767.
+
+ushort — это 16-битный целый тип без знака.
+Диапазон: от 0 до 65 535.
+
+Используются для хранения небольших целых чисел.
+
+#!markdown
+
+### doubles
+
+0,1 + 0,2 does NOT equal 0,3
+
+a + b = 0,30000000000000004
+
+#!markdown
+
+using System.Xml;

@@ -3,3 +3,81 @@
 *.int
 *.lk
 *.zip
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.pdb
+*.obj
+*.exe
+*.dll
+*.ilk
+*.log
+*.ncb
+*.bak
+*.cache
+*.aps
+*.bsc
+*.sbr
+*.tlb
+*.tlh
+*.tmp
+*.vspscc
+*.vssscc
+*.vsproj
+*.vsprops
+*.vsw
+*.code-workspace
+
+# Build Results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+*.lo
+*.la
+*.blg
+*.lit
+*.lib
+*.so
+*.a
+*.exp
+*.opt
+*.res
+*.pch
+*.idb
+*.ipch
+*.iog
+*.pidb
+*.iobj
+*.testsetting
+*.trx
+*.fxcop
+*.fxcopxml
+
+# Packages
+packages/
+*.nupkg
+project.lock.json
+
+# Rider
+.idea/
+*.sln.iml
+
+# Resharper
+*.resharper
+
+# NCrunch
+_NCrunch_*
+
+# StyleCop
+StyleCop.Cache
+
+# Visual Studio Code
+.vscode/
+
+# Other common files
+Thumbs.db
+ehthumbs.db
+Desktop.ini

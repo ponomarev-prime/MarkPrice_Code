@@ -1,0 +1,89 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"name":"csharp","languageName":"csharp"},{"name":"fsharp","languageName":"F#","aliases":["f#","fs"]},{"name":"html","languageName":"HTML"},{"name":"http","languageName":"HTTP"},{"name":"javascript","languageName":"JavaScript","aliases":["js"]},{"name":"mermaid","languageName":"Mermaid"},{"name":"pwsh","languageName":"PowerShell","aliases":["powershell"]},{"name":"value"}]}}
+
+#!csharp
+
+Console.WriteLine("XXX");
+
+#!markdown
+
+Create .NET Console net6
+
+```powershell
+dotnet --list-sdks
+
+dotnet new console -f net6.0
+```
+
+#!markdown
+
+---
+
+#!markdown
+
+Код использует рефлексию, чтобы пройтись по всем сборкам, на которые ссылается входная сборка, и для каждой посчитать число типов и методов.
+
+```csharp
+using System.Reflection;
+
+Assembly? assembly = Assembly.GetEntryAssembly();
+if (assembly == null) return;
+```
+
+`Assembly.GetEntryAssembly()` возвращает входную сборку процесса (ту, из которой стартовало приложение).
+
+Может вернуть `null` в некоторых сценариях: тест-раннеры, плагинные хосты, single-file/тримминг и т.п. Поэтому есть ранний return.
+
+```csharp
+foreach (AssemblyName name in assembly.GetReferencedAssemblies())
+{
+    Assembly a = Assembly.Load(name);
+```
+
+GetReferencedAssemblies() — список метаданных о сборках, на которые ссылается входная сборка.
+
+Assembly.Load(name) подгружает саму сборку в текущий контекст загрузки. Здесь возможны ошибки разрешения зависимостей, поэтому в «боевом» коде обычно оборачивают в try/catch.
+
+```csharp
+    int methodCount = 0;
+
+    foreach (TypeInfo t in a.DefinedTypes)
+    {
+        methodCount += t.GetMethods().Count();
+    }
+```
+
+`a.DefinedTypes` — все типы, определённые в сборке a (как `TypeInfo`).
+
+`t.GetMethods()` возвращает методы типа. По умолчанию это публичные методы (экземплярные и статические) и, в отличие от `DeclaredMethods`, включает унаследованные. Если нужно посчитать только методы, объявленные именно в типе, используй `t.DeclaredMethods.Count()`. Если нужны непубличные — задай `BindingFlags`.
+
+```csharp
+    Console.WriteLine(
+        "{0:N0} types with {1:N0} methods in {2} assembly",
+        arg0: a.DefinedTypes.Count(),
+        arg1: methodCount, arg2: name.Name);
+}
+```
+
+Форматированная строка:
+
+`{0:N0}` и `{1:N0}` — числовой формат с разделителями тысяч и без десятичной части.
+
+`a.DefinedTypes.Count()` — количество типов в сборке.
+
+methodCount — суммарное количество методов (как посчитали выше).
+
+name.Name — короткое имя сборки.
+
+Пример вывода:
+`1,234 types with 8,765 methods in System.Linq assembly`
+
+#!markdown
+
+---
+
+#!csharp
+
+double x = 3.14;
+Console.WriteLine($"{nameof(x)} = {x}");
