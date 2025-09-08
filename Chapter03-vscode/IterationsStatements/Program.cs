@@ -1,7 +1,9 @@
 ﻿//
 using static System.Console;
 
-for (int y = 1; y <= 5; y++)
+string[] names = { "Adam", "Barry", "Charlie" };
+
+foreach (string name in names)
 {
-    WriteLine(y);
+    WriteLine($"{name} has {name.Length} characters.");
 }
