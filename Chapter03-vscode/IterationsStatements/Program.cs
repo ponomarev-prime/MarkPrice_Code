@@ -1,21 +1,26 @@
 ﻿//
 using static System.Console;
 
-int x = 0;
-
-while (x < 10)
-{
-    WriteLine(x);
-    x++;
-}
-
 string? password;
+int i = 0;
+bool isCorrect = false;
 
 do
 {
     Write("Enter your password:  ");
     password = ReadLine();
+    if (password == "Pa$$w0rd")
+    {
+        WriteLine("Correct!");
+        isCorrect = true;
+        break;
+    }
+    i++;
 }
-while (password != "Pa$$w0rd");
+while (i < 5);
 
-WriteLine("Correct!");
+if (!isCorrect)
+{
+    WriteLine("You shall not pass!");
+}
+
