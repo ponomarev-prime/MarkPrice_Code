@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"name": "MarkPrice_Code",
+			"path": ".."
+		},
+		{
+			"name": "Chapter01-vscode",
+			"path": "."
+		},
+		{
+			"name": "HelloCS",
+			"path": "HelloCS"
+		},
+		{
+			"name": "TopLevelProgram",
+			"path": "TopLevelProgram"
+		},
+		{
+			"name": "Chapter02-vscode",
+			"path": "../Chapter02-vscode"
+		},
+		{
+			"path": "../Chapter02-vscode/Exercise03"
+		}
+	],
+	"settings": {}
+}

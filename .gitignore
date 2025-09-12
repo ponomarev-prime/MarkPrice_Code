@@ -28,7 +28,7 @@
 *.vsproj
 *.vsprops
 *.vsw
-*.code-workspace
+#*.code-workspace
 
 # Build Results
 [Dd]ebug/

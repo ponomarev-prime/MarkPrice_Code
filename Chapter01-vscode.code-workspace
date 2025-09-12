@@ -1,0 +1,40 @@
+{
+	"folders": [
+		{
+			"name": "MarkPrice_Code",
+			"path": "."
+		},
+		{
+			"name": "Chapter01-vscode",
+			"path": "Chapter01-vscode"
+		},
+		{
+			"name": "HelloCS",
+			"path": "Chapter01-vscode/HelloCS"
+		},
+		{
+			"name": "TopLevelProgram",
+			"path": "Chapter01-vscode/TopLevelProgram"
+		},
+		{
+			"name": "Chapter02-vscode",
+			"path": "Chapter02-vscode"
+		},
+		{
+			"path": "Chapter02-vscode/Exercise03"
+		},
+		{
+			"path": "Chapter03-vscode/Operators"
+		},
+		{
+			"path": "Chapter03-vscode"
+		},
+		{
+			"path": "Chapter03-vscode/comparison_with_the_sample"
+		},
+		{
+			"path": "Chapter03-vscode/IterationsStatements"
+		}
+	],
+	"settings": {}
+}

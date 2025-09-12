@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "Vocabruarly"
+		},
+		{
+			"path": "Numbers"
+		},
+		{
+			"path": "Variables"
+		},
+		{
+			"path": "ExploringConsole"
+		},
+		{
+			"path": "Formatting"
+		},
+		{
+			"path": "UserInput"
+		},
+		{
+			"path": "Arguments"
+		},
+		{
+			"path": "Exercise03"
+		}
+	],
+	"settings": {}
+}
