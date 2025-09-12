@@ -1,6 +1,7 @@
 ﻿//
 
 using static System.Console;
+using static System.Convert;
 
 int a = 10;
 double b = a; // Implicit conversion from int to double
@@ -21,3 +22,7 @@ WriteLine($"e is {e:N0} and f is {f:N0}");
 e = 5_000_000_000;
 f = (int)e;
 WriteLine($"e is {e:N0} and f is {f:N0}");
+
+double g = 9.9;
+int h = ToInt32(g);
+WriteLine($"g is {g} and h is {h}"); // Uses rounding;
