@@ -34,6 +34,9 @@
 		},
 		{
 			"path": "Chapter03-vscode/IterationsStatements"
+		},
+		{
+			"path": "Chapter03-vscode/CastingConverting"
 		}
 	],
 	"settings": {}
