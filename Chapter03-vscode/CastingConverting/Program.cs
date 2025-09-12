@@ -3,16 +3,22 @@
 using static System.Console;
 using static System.Convert;
 
-double[] doubles = new[] { 9.49, 9.5, 9.51, 10.49, 10.5, 10.51 };
-foreach (double dbl in doubles)
-{
-    WriteLine($"{dbl} to int 32 is {ToInt32(dbl)}");
-}
+byte[] binaryObject = new byte[128];
 
-foreach (double dbl in doubles)
+(new Random()).NextBytes(binaryObject);
+
+WriteLine("Binary Object as bytes:");
+for (int index = 0; index < binaryObject.Length; index++)
 {
-    WriteLine(format:
-    "Math.Round({0}, 0, MidpointRounding.AwayFromZero) is {1}",
-    arg0: dbl,
-    arg1: Math.Round(value: dbl, digits: 0, mode: MidpointRounding.AwayFromZero));
+    Write($"{binaryObject[index]:X} ");
+}
+WriteLine();
+
+string encoded = ToBase64String(binaryObject);
+WriteLine($"Binary Object as Base64: {encoded}");
+
+byte[] decoded = FromBase64String(encoded);
+for (int index = 0; index < decoded.Length; index++)
+{
+    Write($"{decoded[index]:X} ");
 }
