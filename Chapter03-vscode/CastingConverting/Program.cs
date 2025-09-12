@@ -3,22 +3,14 @@
 using static System.Console;
 using static System.Convert;
 
-byte[] binaryObject = new byte[128];
+Write("How many eggs are there? ");
+string? input = ReadLine();
 
-(new Random()).NextBytes(binaryObject);
-
-WriteLine("Binary Object as bytes:");
-for (int index = 0; index < binaryObject.Length; index++)
+if (int.TryParse(input, out int count))
 {
-    Write($"{binaryObject[index]:X} ");
+    WriteLine($"There are {count} eggs.");
 }
-WriteLine();
-
-string encoded = ToBase64String(binaryObject);
-WriteLine($"Binary Object as Base64: {encoded}");
-
-byte[] decoded = FromBase64String(encoded);
-for (int index = 0; index < decoded.Length; index++)
+else
 {
-    Write($"{decoded[index]:X} ");
+    WriteLine("I could not parse the input.");
 }
