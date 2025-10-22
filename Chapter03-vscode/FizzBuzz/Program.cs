@@ -2,7 +2,9 @@
 using static System.Console;
 
 
+
 for (int i = 1; i <= 100; i++)
+checked
 {
     if (i % 3 == 0 && i % 5 == 0)
         Write("FizzBuzz");
