@@ -37,6 +37,9 @@
 		},
 		{
 			"path": "Chapter03-vscode/CastingConverting"
+		},
+		{
+			"path": "ex32"
 		}
 	],
 	"settings": {}
