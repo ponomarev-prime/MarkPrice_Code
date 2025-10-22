@@ -40,6 +40,9 @@
 		},
 		{
 			"path": "ex32"
+		},
+		{
+			"path": "FizzBuzz"
 		}
 	],
 	"settings": {}
